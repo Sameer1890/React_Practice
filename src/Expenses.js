@@ -1,16 +1,13 @@
 import './Expenses.css'
-function Expenses() {
-    let title ="Title";
-    const date="date and time";
-    const amount = 12222;
-  
+import ExpensesDate from './ExpensesDate';
+function Expenses(props) {
     
     return (
-  <div className="expense" >
-  <div className="">{date}</div>
+  <div className="expense">
+  <ExpensesDate date={props.date}/>
   <div className=".expense-description">
-    <h1>{title}</h1></div>
-  <div className="expense-price">{amount}</div>
+    <h1>{props.title}</h1></div>
+  <div className="expense-price">{props.amount}</div>
   </div>
     );
   }
