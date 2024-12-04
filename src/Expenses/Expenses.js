@@ -5,17 +5,24 @@ import Card from '../UI/Cards';
 import { useState } from 'react';
 function Expenses(props) {
 
-  let clickHandler = () => {
-    alert("checked");
+  const [title, setTitle] = useState(props.title);
+  const [newTitle, setNewTitle] = useState();
 
+  let clickHandler = () => {
+    setTitle(newTitle);
+
+  }
+  const changeHandler = (event) => {
+    setNewTitle(event.target.value);
   }
 
     return (
   <Card className='expense'>
   <ExpensesDate date={props.date}/>
   <div className=".expense-description">
-    <h1>{props.title}</h1></div>
+    <h1>{title}</h1></div>
   <div className="expense-price">{props.amount}</div>
+  <input  type='text' value={newTitle} onChange={changeHandler}/>
   <button onClick={clickHandler}>Change title</button>
   </Card>
     );
