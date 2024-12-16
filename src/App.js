@@ -1,5 +1,6 @@
 import './App.css';
 import ExpensesItem from './Expenses/ExpensesItem';
+import NewExpense from './NewExpense/NewExpense';
 
 
 function App() {
@@ -32,7 +33,10 @@ function App() {
   ]
 
   return (
+    <div>
+    <NewExpense>{console.log("asas")}</NewExpense>
     <ExpensesItem item={expensesdata} />
+    </div>
     )
 }
 export default App;
