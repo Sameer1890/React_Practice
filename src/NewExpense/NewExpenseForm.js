@@ -1,28 +1,39 @@
-import React from "react";
+import { useState } from "react";
 import "./NewExpenseForm.css";
 
+
 function NewExpenseForm() {
+  const [data,setDate]=useState();
+  const [title,setTitle]=useState();
+  const [amount, setAmount]=useState();
+
+const handleSubmit =(e)=>{
+ e.preventDefault();
+ const expense={title, amount, date:new Date(data)};
+ console.log(expense);
+
+ setAmount();
+ setTitle();
+ setDate();
+};
 
     return (
-      <form className="form-container">
+      <form className="form-container" onSubmit={(handleSubmit)} >
         <input
           type="date"
-          value="{date}"
-          // onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
           className="form-input"
         />
         <input
           type="text"
           placeholder="Title"
-          value="{title}"
-          // onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
           className="form-input"
         />
         <input
           type="number"
           placeholder="Amount"
-          value="{amount}"
-          // onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => setAmount(e.target.value)}
           className="form-input"
         />
         <button type="submit" className="form-button">Submit</button>
